@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ModuleType>MobiFlight Micro</ModuleType>
+  <ModuleName>ADIRS</ModuleName>
+  <PowerSavingTime>600</PowerSavingTime>
+  <Output Name="OUT BRT BACK" Pin="5" />
+  <Output Name="OUT BRT LED" Pin="3" />
+  <ShiftRegister Name="OSH 1" LatchPin="0" ClockPin="2" DataPin="1" NumModules="3" />
+  <InputMultiplexer Name="MUX 1" DataPin="15" NumBytes="2">
+    <Selector Name="MultiplexerDriver" PinSx="21 20 19 18" />
+  </InputMultiplexer>
+</Config>
