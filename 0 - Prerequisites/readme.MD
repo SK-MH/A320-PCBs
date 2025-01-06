@@ -1,7 +1,7 @@
 # A320 boards and panels
 
-[!IMPORTANT]
-Vorsicht bei ADIRS. Version prüfen
+> [!IMPORTANT]
+> Vorsicht bei ADIRS. Version prüfen
 
 <!-- Spickzettel
 - Lights und ECAM jetzt mit Pro Micro statt AtMEGA 2560
@@ -27,9 +27,9 @@ With Inkcsape you have to remove the TEXT objects.
 Otherwise they will be twice in the final version.
 
 The final SVG files could be milled with a CNC machine or cut with a laser cutter.
-[!Note]
-I have made no good experience with a diode laser trying to cut 3mm acryl.
-Use a CO2 laser or use a CNC machine.
+> [!Note]
+> I have made no good experience with a diode laser trying to cut 3mm acryl.
+> Use a CO2 laser or use a CNC machine.
 
 For both the panels I found some at "Acrylics-shop" (NO! I'm not an affiliate to this company).
 For the Front panel I used Makrolon® UV 2130 weiß opal 3mm, Artikelnummer (articel number): 70600.
@@ -65,9 +65,9 @@ For better readability all definitions are following this sequence and the namin
 <tr><td></td><td>Custom Devices</td><td>CUST x</td></tr>
 </table>
 
-[!NOTE]
-All &#060;names&#062; are in CAPITALS
-x is representing a number 1..9
+> [!TIP]
+> All &#060;names&#062; are in CAPITALS
+> x is representing a number 1..9
 </details>
 
 ## MobiFlight Connector
