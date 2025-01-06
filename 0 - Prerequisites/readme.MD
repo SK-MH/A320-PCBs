@@ -1,7 +1,7 @@
 # A320 boards and panels
 
 > [!IMPORTANT]
-> Vorsicht bei ADIRS. Version prüfen
+> Vorsicht beim ADIRS. Version prüfen
 
 <!-- Spickzettel
 - Lights und ECAM jetzt mit Pro Micro statt AtMEGA 2560
@@ -23,13 +23,13 @@ In most of the KiCAD boards you can find additional layers.
 </table>
 
 These Layer can be printed out in KiCAD as SVG-File. 
-With Inkcsape you have to remove the TEXT objects.
+With Inkscape you have to remove the TEXT objects.
 Otherwise they will be twice in the final version.
 
 The final SVG files could be milled with a CNC machine or cut with a laser cutter.
-> [!Note]
+> [!NOTE]
 > I have made no good experience with a diode laser trying to cut 3mm acryl.
-> Use a CO2 laser or use a CNC machine.
+> Use a CO2 laser or a CNC machine.
 
 For both the panels I found some at "Acrylics-shop" (NO! I'm not an affiliate to this company).
 For the Front panel I used Makrolon® UV 2130 weiß opal 3mm, Artikelnummer (articel number): 70600.
@@ -66,8 +66,7 @@ For better readability all definitions are following this sequence and the namin
 </table>
 
 > [!TIP]
-> All &#060;names&#062; are in CAPITALS
-> x is representing a number 1..9
+> All &#060;names&#062; are in CAPITALS, x is representing a number 1..9
 </details>
 
 ## MobiFlight Connector
