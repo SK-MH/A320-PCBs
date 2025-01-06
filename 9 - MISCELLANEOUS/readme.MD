@@ -1,0 +1,1 @@
+The +EMPTY.mcc can be used as a default setup

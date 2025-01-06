@@ -1,0 +1,1 @@
+Board size 148x36mm

@@ -1,0 +1,6 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+CDV_OFF1,LED_D3.0mm,1,WHITE,
+"BL_1, BL_2, BL_3, BL_4",LED_D3.0mm,4,YELLOW,
+"BTN_CDV1, BTN_PA1",B3F1000,2,B3F-1055,
+PA_CDV1,JST_EH_B7B-EH-A_1x07_P2.50mm_Vertical,1,Pin Header 1x07,
+PA_IN_USE1,LED_D3.0mm,1,BLUE,
