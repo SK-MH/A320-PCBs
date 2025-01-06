@@ -1,0 +1,8 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"BL_1, BL_10, BL_11, BL_12, BL_13, BL_14, BL_15, BL_16, BL_2, BL_3, BL_4, BL_5, BL_6, BL_7, BL_8, BL_9",LED_D3.0mm,16,YELLOW,
+"BTN_AIDS_PRINT1, BTN_DFDR_EVENT1",SW-Push,2,Push Button,
+C1,C_Disc_D3.0mm_W1.6mm_P2.50mm,1,0.1uF Ceramic,
+"External1, External2",JST_EH_B6B-EH-A_1x06_P2.50mm_Vertical,2,Pin Header 1x06,
+POT_FLOOD_LIGHT_FO1,Potentiometer_Alps_RK09K_Single_Vertical,1,10k,
+R1,R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal,1,1k,
+U1,DIP-16_W7.62mm,1,TLC5917,
