@@ -9,8 +9,6 @@
 -->
 
 ## KiCAD
-<details>
-<summary>Additional layers</summary>
 
 In most of the KiCAD boards you can find additional layers.
 <table>
@@ -38,12 +36,8 @@ And for the Mid Panel I used Makrolon GP099 standard 3mm, farblos (colorless).
 
 For a few boards the Color Mask (see above) is already defined. 
 Cut them with a laser using some cardboard and fix it temporary on the panel when painting.
-</details>
 
 ## MobiFlight Modules
-<details>
-<summary>Click to expand</summary>
-
 For better readability all definitions are following this sequence and the naming convention:
 
 <table>
@@ -67,12 +61,7 @@ For better readability all definitions are following this sequence and the namin
 
 > [!TIP]
 > All &#060;names&#062; are in CAPITALS, x is representing a number 1..9
-</details>
 
 ## MobiFlight Connector
-<details>
-<summary>Click to expand</summary>
 
 tbd.
-
-</details>
