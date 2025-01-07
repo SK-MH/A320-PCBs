@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ModuleType>MobiFlight Micro</ModuleType>
+  <ModuleName>CHRONO neu</ModuleName>
+  <PowerSavingTime>600</PowerSavingTime>
+  <Output Name="OUT_BRT_LED" Pin="6" />
+  <LedModule Name="7SEG 1" ModelType="0" DinPin="1" ClsPin="0" ClkPin="2" Brightness="15" NumModules="2" />
+  <ShiftRegister Name="OSH 1" LatchPin="4" ClockPin="3" DataPin="9" NumModules="1" />
+  <Button Name="BTN CHR" Pin="5" />
+  <Button Name="BTN RST" Pin="7" />
+  <Button Name="BTN SET" Pin="8" />
+  <Button Name="RSW RUN" Pin="14" />
+  <Button Name="RSW STP" Pin="15" />
+  <Button Name="RSW RST" Pin="18" />
+  <Button Name="RSW GPS" Pin="19" />
+  <Button Name="RSW INT" Pin="20" />
+  <Button Name="RSW SET" Pin="21" />
+</Config>

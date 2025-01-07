@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MobiflightConnector>
+  <outputs>
+    <config guid="9cbd86ac-ae82-4414-84ae-1a9e04434c37">
+      <active>false</active>
+      <description>---------------------------------------------- START FIRE</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <comparison active="True" value="" operand="=" ifValue="1" elseValue="0" />
+        </modifiers>
+        <display type="" serial="-" trigger="change" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="5a4d40c8-ad1a-4834-a605-000152d5e64e">
+      <active>true</active>
+      <description>FIRE - ALL LIGHTS OFF</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="False" expression="0" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 0|Output 1|Output 2|Output 3|Output 4|Output 5|Output 6|Output 7|Output 8|Output 9|Output 10|Output 11|Output 12|Output 13|Output 14|Output 15|Output 16|Output 17|Output 18|Output 19|Output 20|Output 21|Output 22|Output 23" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="11b78755-e5ba-482e-b2ef-05185b9bf593">
+      <active>true</active>
+      <description>FIRE - OUT BRT BACK</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:LIGHT POTENTIOMETER:85, Percent)" UUID="e6ad0436-c249-443a-bb47-d24a13342b9d" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="False" expression="if(#=0,100,$)" />
+          <interpolation active="True">
+            <value x="0" y="255" />
+            <value x="100" y="100" />
+          </interpolation>
+        </modifiers>
+        <display type="Output" serial="FIRE/ SN-7DG-229" trigger="normal" pin="OUT BRK BACK" pinBrightness="255" pinPwm="True" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="136283b6-a2cd-403e-bb17-a7916f8d90ce">
+      <active>true</active>
+      <description>FIRE - BACKLIGHT</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 16|Output 17|Output 19|Output 20|Output 22|Output 23" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="66c8f7f3-f8f8-455e-a8ae-bc91c8d61e66">
+      <active>true</active>
+      <description>FIRE - OUT BRT LED</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(!=0,255,if(#=0,100,if(#=2,250,200)))" />
+        </modifiers>
+        <display type="Output" serial="FIRE/ SN-7DG-229" trigger="normal" pin="OUT BRT LED" pinBrightness="255" pinPwm="True" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="!" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="c17165f6-99cd-4b6c-8b12-c9b08b695053">
+      <active>false</active>
+      <description>----------------------------------------------</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="" serial="" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="28dfa8e1-5789-492f-ac40-18b808e54edc">
+      <active>true</active>
+      <description>FIRE - ENG1-AGENT1 SQUIB</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG1, bool) &#xA;(L:A32NX_FIRE_BUTTON_ENG1) or" UUID="06e18a80-b8c0-4616-997b-1e96eb905586" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 2" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="0f254323-365a-4d78-8510-c473aa21614c">
+      <active>true</active>
+      <description>FIRE - ENG1-AGENT1 DISCH</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG1, bool) &#xA;(L:A32NX_FIRE_ENG1_AGENT1_Discharge) or" UUID="1ef92719-8dcb-4bf9-b5a5-237421f84026" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 3" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="46c391d6-41a9-48f1-ada1-2e5a34e3ccf0">
+      <active>true</active>
+      <description>FIRE - ENG1-AGENT2 SQUIB</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG1, bool) &#xA;(L:A32NX_FIRE_BUTTON_ENG1) or" UUID="7da43e28-bab3-480d-9324-c6d55d262398" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 6" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="e795ca9f-25fc-447c-86b4-4c59e4f2ac2b">
+      <active>true</active>
+      <description>FIRE - ENG1-AGENT2 DISCH</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG1, bool) &#xA;(L:A32NX_FIRE_ENG1_AGENT2_Discharge) or" UUID="3c8cb3df-e0ce-4ce5-a1ed-090580ce5caa" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 7" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="9de397d2-94aa-4861-aa8c-2f63e05c59c7">
+      <active>true</active>
+      <description>FIRE - ENG2-AGENT1 SQUIB</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG2, bool) &#xA;(L:A32NX_FIRE_BUTTON_ENG2) or" UUID="669b8a75-12dc-48ef-87d5-2372c78f0400" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 14" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="38310be3-4797-43f0-9d4b-ee9adf434977">
+      <active>true</active>
+      <description>FIRE - ENG2-AGENT1 DISCH</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG2, bool) &#xA;(L:A32NX_FIRE_ENG2_AGENT1_Discharge) or" UUID="ba734e2d-b016-4a7a-b2cf-e6cfc6d127a4" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 15" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="85b936ee-5825-4770-b31d-f24aa7ba29a8">
+      <active>true</active>
+      <description>FIRE - ENG2-AGENT2 SQUIB</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG2, bool) &#xA;(L:A32NX_FIRE_BUTTON_ENG2) or" UUID="19806cd2-c69b-468c-9c1c-beca7d61468b" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 10" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="10518a03-0ab0-466d-a657-26536bc9cea2">
+      <active>true</active>
+      <description>FIRE - ENG2-AGENT2 DISCH</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG2, bool) &#xA;(L:A32NX_FIRE_ENG2_AGENT2_Discharge) or" UUID="224057d1-0cc0-4c58-bf65-32a757b9387b" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 11" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="c249d0e4-b93c-4ec3-ab93-11857ca441d9">
+      <active>true</active>
+      <description>FIRE - APU-AGENT SQUIB</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_APU, bool) &#xA;(L:A32NX_FIRE_BUTTON_APU, bool) or" UUID="c937ce17-a3f2-47eb-bb18-91b0529e2069" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 0" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="60a3cf37-758b-4dea-99d2-1de9792f31af">
+      <active>true</active>
+      <description>FIRE - APU-AGENT DISCH</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_APU, bool) &#xA;(L:A32NX_FIRE_APU_AGENT1_Discharge) or" UUID="9a9d4e69-24e1-4b8a-b92e-7390961ff413" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 1" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="10116c63-6154-4e8f-88c4-ad6937e53244">
+      <active>false</active>
+      <description>----------------------------------------------</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="" serial="" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="2b7b929c-4b84-4320-b8b2-58815e89337d">
+      <active>true</active>
+      <description>FIRE - ENG1 FIRE</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG1,bool) (A:ENG ON FIRE:1, bool) or (L:A32NX_OVHD_INTLT_ANN) 0 == or &#xA;(L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED,bool) &#xA;(L:A32NX_ELEC_AC_STAT_INV_BUS_IS_POWERED,bool) or &#xA;(L:A32NX_ELEC_AC_2_BUS_IS_POWERED,bool) or and " UUID="411b3e8d-4bc3-4d74-a883-2985afed7856" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 4|Output 5" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="419074a7-284f-4a4e-86ea-cb26d8fbbd9a">
+      <active>true</active>
+      <description>FIRE - ENG2 FIRE</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_ENG2, bool) (A:ENG ON FIRE:2,  bool) or (L:A32NX_OVHD_INTLT_ANN) 0 == or &#xA;(L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED, bool) &#xA;(L:A32NX_ELEC_AC_STAT_INV_BUS_IS_POWERED, bool) or &#xA;(L:A32NX_ELEC_AC_2_BUS_IS_POWERED, bool) or and " UUID="e46e7756-215d-4a9d-af33-bbdd2b07ea6b" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 8|Output 9" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="3e97260c-cb72-44d1-b6b3-1a0df43c5ce2">
+      <active>true</active>
+      <description>FIRE - APU FIRE</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FIRE_TEST_APU, bool) &#xA;(A:APU ON FIRE DETECTED, bool) or &#xA;(L:A32NX_OVHD_INTLT_ANN) 0 == or &#xA;(L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED, bool) &#xA;(L:A32NX_ELEC_AC_STAT_INV_BUS_IS_POWERED, bool) or &#xA;(L:A32NX_ELEC_AC_1_BUS_IS_POWERED, bool) or and " UUID="cc8a3f9c-3cf3-4cc5-8526-b92b623f9f53" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="FIRE/ SN-7DG-229" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 12|Output 13" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="0" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="3817dcb8-06dd-4b00-8441-5ffef733b2d0">
+      <active>false</active>
+      <description>---------------------------------------------- END FIRE</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="" serial="" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+  </outputs>
+  <inputs>
+    <config guid="877a3672-fec2-48eb-a1a3-c5da5359200b">
+      <active>false</active>
+      <description>---------------------------------------------- START FIRE</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="8e8f70e5-84e7-4805-bcad-6d607eb8b723">
+      <active>true</active>
+      <description>FIRE - BTN ENG1 AGENT1</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="FIRE/ SN-7DG-229" name="BTN ENG1 AGENT1" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(L:A32NX_FIRE_BUTTON_ENG1) if{ 1 (&gt;L:A32NX_FIRE_ENG1_AGENT1_Discharge) }" presetId="e526b1b2-3186-4853-aabb-7eacf4fc6439" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="3b9534c9-29a1-4f7c-a73c-c46d42692b5c">
+      <active>true</active>
+      <description>FIRE - BTN ENG1 AGENT2</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="FIRE/ SN-7DG-229" name="BTN ENG1 AGENT2" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(L:A32NX_FIRE_BUTTON_ENG1) if{ 1 (&gt;L:A32NX_FIRE_ENG1_AGENT2_Discharge) }" presetId="9b3b73bf-47c4-456b-a29a-f20a37e74744" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="6d276d6e-2832-4aa7-9df0-71f1b07c2500">
+      <active>true</active>
+      <description>FIRE - BTN ENG2 AGENT1</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="FIRE/ SN-7DG-229" name="BTN ENG2 AGENT1" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(L:A32NX_FIRE_BUTTON_ENG2) if{ 1 (&gt;L:A32NX_FIRE_ENG2_AGENT1_Discharge) }" presetId="59fed8cb-1117-4ac2-ae61-3ff4c939122c" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="ad73ff7a-a23a-4bb1-a18b-5419df378f6a">
+      <active>true</active>
+      <description>FIRE - BTN ENG2 AGENT2</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="FIRE/ SN-7DG-229" name="BTN ENG2 AGENT2" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(L:A32NX_FIRE_BUTTON_ENG2) if{ 1 (&gt;L:A32NX_FIRE_ENG2_AGENT2_Discharge) }" presetId="6b78cb0e-8e9c-4201-844f-2e1af2e3b1b9" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="3e6b5a72-75f5-48cb-8086-e4f9134d0115">
+      <active>true</active>
+      <description>FIRE - BTN APU AGENT</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="FIRE/ SN-7DG-229" name="BTN APU AGENT" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(L:A32NX_FIRE_BUTTON_APU) if{ 1 (&gt;L:A32NX_FIRE_APU_AGENT1_Discharge) }" presetId="3afe49ea-75db-432b-bc40-a1164a41de63" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="aef86aae-f938-4a3d-a2e5-b322279667b2">
+      <active>true</active>
+      <description>FIRE - BTN ENG1</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="FIRE/ SN-7DG-229" name="BTN ENG1" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(L:A32NX_FIRE_GUARD_ENG1) if{ (L:A32NX_FIRE_BUTTON_ENG1) ! (&gt;L:A32NX_FIRE_BUTTON_ENG1) }" presetId="f1888a14-dfe5-4795-8970-31554f512df5" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="73b08b06-97f5-4cc9-9eb5-08fbbf2bcc96">
+      <active>true</active>
+      <description>FIRE - BTN ENG2</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="FIRE/ SN-7DG-229" name="BTN ENG2" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(L:A32NX_FIRE_GUARD_ENG2) if{ (L:A32NX_FIRE_BUTTON_ENG2) ! (&gt;L:A32NX_FIRE_BUTTON_ENG2) }" presetId="53d468b4-3a86-4e76-8a2a-0a2604fb8a57" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="2c8bae67-8fad-4554-a4b5-173fa2397e6b">
+      <active>true</active>
+      <description>FIRE - BTN APU</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="FIRE/ SN-7DG-229" name="BTN APU" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(L:A32NX_FIRE_GUARD_APU) if{ (&gt;L:A32NX_FIRE_BUTTON_APU) ! (&gt;L:A32NX_FIRE_BUTTON_APU) }" presetId="84486bc3-7327-41bb-b666-9a47b0bb80c9" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="9de3e496-50c2-4de5-8ee3-654538d75cc9">
+      <active>false</active>
+      <description>---------------------------------------------- END FIRE</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+  </inputs>
+</MobiflightConnector>

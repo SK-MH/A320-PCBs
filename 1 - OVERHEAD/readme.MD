@@ -1,4 +1,6 @@
 ## The overhead is separated into the following boards
+
+![Overhead](main/1%20-%20OVERHEAD/Lighting%20Overhead.JPG)
 - PA & COCKPIT DOOR VIDEO
 - ADIRS
 - FLTCTL Capt.

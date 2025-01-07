@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MobiflightConnector>
+  <outputs>
+    <config guid="c4e4a2e5-594b-4529-a303-681d228dfd51">
+      <active>true</active>
+      <description>ESS BUS IS POWERED (AC)</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_ELEC_AC_ESS_BUS_IS_POWERED)" UUID="95b6f5a3-c4e8-419d-976e-82a018bdec83" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="9e347547-59df-4e5f-9f1b-946c89c3780f">
+      <active>true</active>
+      <description>ANN LT (0,1,2)</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_OVHD_INTLT_ANN)" UUID="c1a09a24-8726-4b92-8a1d-c6c7c4cf5db4" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="a42db875-6ea9-493d-974d-6290681e7bb4">
+      <active>true</active>
+      <description>DISP LT (0--15)</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:LIGHT POTENTIOMETER:84, Percent)" UUID="e6ad0436-c249-443a-bb47-d24a13342b9d" />
+        <test type="Float" value="100" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,100,if(#=1,$,$/2))" />
+          <interpolation active="True">
+            <value x="0" y="1" />
+            <value x="100" y="6" />
+          </interpolation>
+        </modifiers>
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="9cbd86ac-ae82-4414-84ae-1a9e04434c37">
+      <active>false</active>
+      <description>---------------------------------------------- START EFIS L</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <comparison active="True" value="" operand="=" ifValue="1" elseValue="0" />
+        </modifiers>
+        <display type="" serial="-" trigger="change" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="5a4d40c8-ad1a-4834-a605-000152d5e64e">
+      <active>true</active>
+      <description>EFIS L- ALL LIGHTS OFF</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="0" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 0|Output 1|Output 2|Output 3|Output 4|Output 5|Output 6|Output 7|Output 8|Output 9|Output 10|Output 11|Output 12|Output 13|Output 14|Output 15" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="=" value="0" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="11b78755-e5ba-482e-b2ef-05185b9bf593">
+      <active>true</active>
+      <description>EFIS L - OUT BRT BACK</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:LIGHT POTENTIOMETER:84, Percent)" UUID="e6ad0436-c249-443a-bb47-d24a13342b9d" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="False" expression="if(#=0,100,$)" />
+          <interpolation active="True">
+            <value x="0" y="255" />
+            <value x="100" y="100" />
+          </interpolation>
+        </modifiers>
+        <display type="Output" serial="EFIS L/ SN-869-089" trigger="normal" pin="OUT BRT BACK" pinBrightness="255" pinPwm="True" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="136283b6-a2cd-403e-bb17-a7916f8d90ce">
+      <active>true</active>
+      <description>EFIS L - BACKLIGHT</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="False" expression="if(#=0,1,$)" />
+          <transformation active="True" expression="1" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 8|Output 9|Output 10|Output 11|Output 12|Output 13|Output 14|Output 15" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="d0c97828-1cba-440d-af42-6d4295a992c5">
+      <active>true</active>
+      <description>EFIS L - BARO BRT</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:LIGHT POTENTIOMETER:87, Percent)" UUID="e6ad0436-c249-443a-bb47-d24a13342b9d" />
+        <test type="Float" value="100" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,100,if(#=1,$,$/2))" />
+          <interpolation active="True">
+            <value x="0" y="1" />
+            <value x="100" y="6" />
+          </interpolation>
+        </modifiers>
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="66c8f7f3-f8f8-455e-a8ae-bc91c8d61e66">
+      <active>true</active>
+      <description>EFIS L - OUT BRT LED</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="False" expression="if(!=0,255,if(#=0,100,if(#=2,250,200)))" />
+        </modifiers>
+        <display type="Output" serial="EFIS L/ SN-869-089" trigger="normal" pin="OUT BRT LED" pinBrightness="255" pinPwm="True" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="a42db875-6ea9-493d-974d-6290681e7bb4" placeholder="!" testvalue="1" />
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="c17165f6-99cd-4b6c-8b12-c9b08b695053">
+      <active>false</active>
+      <description>----------------------------------------------</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="" serial="" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="23d480e4-8473-4b32-af7b-4407c7dbd234">
+      <active>true</active>
+      <description>EFIS L - QFE</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:XMLVAR_Baro1_Mode)" UUID="08af65f2-159e-45c3-8e94-4360e88046dc" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,1-$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 6" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="217006a6-5fb4-4b74-a041-10e5fb7b373a">
+      <active>true</active>
+      <description>EFIS L - QNH</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:XMLVAR_Baro1_Mode)" UUID="08af65f2-159e-45c3-8e94-4360e88046dc" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 5" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="a9ec83da-e226-4932-8c2b-35ff84ad29e5">
+      <active>true</active>
+      <description>EFIS L - BARO</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FCU_EFIS_L_DISPLAY_BARO_VALUE)" UUID="5dff3541-5190-44ea-9a37-6a0026b217a7" />
+        <test type="Float" value="99" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,88.88,if($=99,'Std ',Round($,2)))" />
+        </modifiers>
+        <display type="Display Module" serial="EFIS L/ SN-869-089" trigger="normal" ledAddress="7SEG" ledConnector="1" ledModuleSize="4" ledPadding="False" ledBrightnessRef="d0c97828-1cba-440d-af42-6d4295a992c5" ledPaddingChar="0" ledDigits="0,1,2,3" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="6e346c38-d12c-49f5-8e55-3cbedadab65c">
+      <active>false</active>
+      <description>----------------------------------------------</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="" serial="" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="28dfa8e1-5789-492f-ac40-18b808e54edc">
+      <active>true</active>
+      <description>EFIS L - FS ON</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FCU_EFIS_L_FD_LIGHT_ON, Bool)" UUID="43bee0b6-1139-4f70-82b2-d14ae2d39005" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="Output" serial="EFIS L/ SN-869-089" trigger="normal" pin="LED FD ON" pinBrightness="255" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="9c1aaa16-df67-4ac7-bf4c-469104f92fe6">
+      <active>true</active>
+      <description>EFIS L - LS ON</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FCU_EFIS_L_LS_LIGHT_ON, Bool)" UUID="0f6f176e-b1ae-4f39-8231-9e696d149965" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="Output" serial="EFIS L/ SN-869-089" trigger="normal" pin="LED LS ON" pinBrightness="255" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="b964df50-86a2-4b7e-a47a-ca33312db118">
+      <active>true</active>
+      <description>EFIS L - CSTR ON</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FCU_EFIS_L_CSTR_LIGHT_ON,Bool) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and max (L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED, Bool) and (L:A32NX_OVHD_INTLT_ANN, number) 2 == if{ 0.1 } els{ 1 } *" UUID="52d1960c-cd1c-4808-b7eb-759bca68be9e" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 0" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="55dd9699-6cc2-4546-a653-9ef6108e7ba6">
+      <active>true</active>
+      <description>EFIS L - WPT ON</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FCU_EFIS_L_WPT_LIGHT_ON,Bool) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and max (L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED, Bool) and (L:A32NX_OVHD_INTLT_ANN, number) 2 == if{ 0.1 } els{ 1 } *" UUID="8da7284b-ad6f-4782-8cff-2fa422951f88" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 1" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="d140826d-8e1d-4262-af46-006225598f0a">
+      <active>true</active>
+      <description>EFIS L - VORD ON</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FCU_EFIS_L_VORD_LIGHT_ON, Bool) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and max (L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED, Bool) and (L:A32NX_OVHD_INTLT_ANN, number) 2 == if{ 0.1 } els{ 1 } *" UUID="16a240ed-4eb6-424f-848b-f3ecf5fb1e02" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 2" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="cbadd914-ed25-43cd-a3e2-61f06b518f77">
+      <active>true</active>
+      <description>EFIS L - NDB ON</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FCU_EFIS_L_NDB_LIGHT_ON, Bool) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and max (L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED, Bool) and (L:A32NX_OVHD_INTLT_ANN, number) 2 == if{ 0.1 } els{ 1 } *" UUID="125b9f91-05b9-4f76-b438-1745165fbd7e" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 3" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="9624b04d-480c-4c56-bc2e-e30c87333d79">
+      <active>true</active>
+      <description>EFIS L - ARPT</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_FCU_EFIS_L_ARPT_LIGHT_ON, Bool) (L:A32NX_OVHD_INTLT_ANN) 0 == (L:A32NX_ELEC_DC_2_BUS_IS_POWERED, Bool) and max (L:A32NX_ELEC_AC_ESS_SHED_BUS_IS_POWERED, Bool) and (L:A32NX_OVHD_INTLT_ANN, number) 2 == if{ 0.1 } els{ 1 } *" UUID="eb866ecc-2146-430e-9604-eda81b470ac8" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,1,$)" />
+        </modifiers>
+        <display type="ShiftRegister" serial="EFIS L/ SN-869-089" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 4" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="3817dcb8-06dd-4b00-8441-5ffef733b2d0">
+      <active>false</active>
+      <description>---------------------------------------------- END EFIS L</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="" serial="" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+  </outputs>
+  <inputs>
+    <config guid="877a3672-fec2-48eb-a1a3-c5da5359200b">
+      <active>false</active>
+      <description>---------------------------------------------- START EFIS L</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="3943a51f-4425-427d-884f-5a3454a9b6bf">
+      <active>true</active>
+      <description>EFIS L - ENC BARO</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="ENC BARO" type="Encoder" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <encoder>
+          <onLeft type="MSFS2020CustomInputAction" command="(&gt;K:A32NX.FCU_EFIS_L_BARO_DEC)" presetId="7fd22973-4037-4bcd-974e-575b64bcdb86" />
+          <onLeftFast />
+          <onRight type="MSFS2020CustomInputAction" command="(&gt;K:A32NX.FCU_EFIS_L_BARO_INC)" presetId="12b4b4a3-f1f9-4392-b403-e5ec15bd8582" />
+          <onRightFast />
+        </encoder>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="1e765823-28cf-49a5-b1ae-1f6f5324ea77">
+      <active>true</active>
+      <description>EFIS L - BTN BARO</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="2">
+          <onPress type="MSFS2020CustomInputAction" command="(&gt;K:A32NX.FCU_EFIS_L_BARO_PUSH)" presetId="45a886ef-84b6-49dc-9ab3-a5752decf3f7" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="6729eeb9-0a1d-4d1a-85f0-0fda3ac07417">
+      <active>true</active>
+      <description>EFIS L - SW QNH</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="3">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;L:XMLVAR_Baro_Selector_HPA_1)" presetId="f75171e3-eb64-41b5-8982-892ee2c548de" />
+          <onRelease type="MSFS2020CustomInputAction" command="0 (&gt;L:XMLVAR_Baro_Selector_HPA_1)" presetId="bc4c3734-320b-4747-896f-950e69211322" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="ffe173d5-73f6-4bb3-a8fd-be70526f82f3">
+      <active>false</active>
+      <description>----------------------------------------------</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="8e8f70e5-84e7-4805-bcad-6d607eb8b723">
+      <active>true</active>
+      <description>EFIS L - BTN FD</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="13">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;K:A32NX.FCU_EFIS_L_FD_PUSH)" presetId="-" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="d9277a82-86db-4f6d-b3fc-c92df11900cd">
+      <active>true</active>
+      <description>EFIS L - BTN LS</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="14">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;K:A32NX.FCU_EFIS_L_LS_PUSH)" presetId="-" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="175f4dce-6b3d-400a-9cdd-d12be8f760b6">
+      <active>true</active>
+      <description>EFIS L - BTN CSTR</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="0">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;K:A32NX.FCU_EFIS_L_CSTR_PUSH)" presetId="85527dc3-d73e-479d-aade-ba8f5d19618e" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="eb7fbdd2-ed6c-441c-a6c2-ebb10f53b365">
+      <active>true</active>
+      <description>EFIS L - BTN WPT</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="1">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;K:A32NX.FCU_EFIS_L_WPT_PUSH)" presetId="-" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="409d3686-46e3-4744-84f7-81ad036bfd0d">
+      <active>true</active>
+      <description>EFIS L - BTN VORD</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="0">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;K:A32NX.FCU_EFIS_L_VORD_PUSH)" presetId="-" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="bad115b5-db52-4fd7-bc58-7fcabb6c8604">
+      <active>true</active>
+      <description>EFIS L - BTN NDB</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="1">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;K:A32NX.FCU_EFIS_L_NDB_PUSH)" presetId="-" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="8c85d564-49ac-4719-bbfb-613cbf1795e0">
+      <active>true</active>
+      <description>EFIS L - BTN ARPT</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="2">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;K:A32NX.FCU_EFIS_L_ARPT_PUSH)" presetId="-" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="a1b560d3-4475-40c5-b771-fd19f939af47">
+      <active>false</active>
+      <description>---------------------------------------------- MODE</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="3fc2fc46-3490-4dab-8944-9e7de47eda0c">
+      <active>true</active>
+      <description>EFIS L - RSW LS</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="8">
+          <onPress type="MSFS2020CustomInputAction" command="0 (&gt;L:A32NX_FCU_EFIS_L_EFIS_MODE)" presetId="b93c2ccf-d283-4b82-8095-a31ca56565ba" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="54fc1b50-0c36-4646-9692-1cfcaf442262">
+      <active>true</active>
+      <description>EFIS L - RSW VOR</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="6">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;L:A32NX_FCU_EFIS_L_EFIS_MODE)" presetId="0427da26-b813-4103-96ca-c60fc7595b97" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="3630d572-2a06-4710-9420-0b7828dcf667">
+      <active>true</active>
+      <description>EFIS L - RSW NAV</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="5">
+          <onPress type="MSFS2020CustomInputAction" command="2 (&gt;L:A32NX_FCU_EFIS_L_EFIS_MODE)" presetId="ccd5e10d-f6b2-4041-bcf1-2b3c9dbbe457" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="f1633b48-ebeb-4447-9122-b50aa97e5349">
+      <active>true</active>
+      <description>EFIS L - RSW ARC</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="4">
+          <onPress type="MSFS2020CustomInputAction" command="3 (&gt;L:A32NX_FCU_EFIS_L_EFIS_MODE)" presetId="819048b5-2b87-4c2b-a4f4-edf1d01a798d" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="c3a7c9d8-29df-48e6-a6cf-976361621c15">
+      <active>true</active>
+      <description>EFIS L - RSW PLAN</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 1" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="7">
+          <onPress type="MSFS2020CustomInputAction" command="4 (&gt;L:A32NX_FCU_EFIS_L_EFIS_MODE)" presetId="5f9cabaf-dd01-4e11-982e-12db31b211a3" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="01ebd9cd-ee79-4689-9449-1c452d6f9e60">
+      <active>false</active>
+      <description>---------------------------------------------- RANGE</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="8ffcad2f-975a-4a63-8a0f-ba740f906792">
+      <active>true</active>
+      <description>EFIS L - RSW DIST 10</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="8">
+          <onPress type="MSFS2020CustomInputAction" command="0 (&gt;L:A32NX_FCU_EFIS_L_EFIS_RANGE)" presetId="0bcef45c-f0af-4cf9-b2f0-7ff3364a986a" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="ed2da1b5-c090-4236-963a-0348b4c2763a">
+      <active>true</active>
+      <description>EFIS L - RSW DIST 20</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="7">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;L:A32NX_FCU_EFIS_L_EFIS_RANGE)" presetId="70eebd15-2976-47f6-af94-b7c3e6b0c0f8" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="0de27405-9215-4411-84c1-4cb51115a3e3">
+      <active>true</active>
+      <description>EFIS L - RSW DIST 40</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="3">
+          <onPress type="MSFS2020CustomInputAction" command="2 (&gt;L:A32NX_FCU_EFIS_L_EFIS_RANGE)" presetId="a4a776fd-dd24-4d0e-ab16-af383309b5f6" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="d623f7dd-0280-4752-80ce-ddacc91495cb">
+      <active>true</active>
+      <description>EFIS L - RSW DIST 80</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="4">
+          <onPress type="MSFS2020CustomInputAction" command="3 (&gt;L:A32NX_FCU_EFIS_L_EFIS_RANGE)&#xA;3 (&gt;L:A32NX_FCU_EFIS_L_EFIS_RANGE)" presetId="77ff16ec-e648-449e-a422-be1a80109ccd" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="b9f4fe01-bf5f-45f2-9319-1ff0b3b714f7">
+      <active>true</active>
+      <description>EFIS L - RSW DIST 160</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="5">
+          <onPress type="MSFS2020CustomInputAction" command="4 (&gt;L:A32NX_FCU_EFIS_L_EFIS_RANGE)" presetId="9d4a8c78-385c-4083-afb4-95870c2f1ba6" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="874b0164-3390-4502-9174-674ab91ec3a8">
+      <active>true</active>
+      <description>EFIS L - RSW DIST 320</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="6">
+          <onPress type="MSFS2020CustomInputAction" command="5 (&gt;L:A32NX_FCU_EFIS_L_EFIS_RANGE)" presetId="55bdfd2e-31d3-47f1-95db-a8b7ebb4d4ee" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="f5880f5f-c0bf-4dc7-906d-d37dd641ab5a">
+      <active>false</active>
+      <description>---------------------------------------------- </description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="c0915319-0ff4-4b64-8aed-44e69d1cb534">
+      <active>true</active>
+      <description>EFIS L - SW NAV1 ADF</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="12">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;L:A32NX_FCU_EFIS_L_NAVAID_1_MODE)" presetId="61718c3f-838f-410e-9373-f45d1e97f242" />
+          <onRelease type="MSFS2020CustomInputAction" command="0 (&gt;L:A32NX_FCU_EFIS_L_NAVAID_1_MODE)" presetId="c03f5daa-511b-45f6-858d-de4ddbffc302" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="1eadca83-6747-4589-a2d4-bd416111c39c">
+      <active>true</active>
+      <description>EFIS L - SW NAV1 VOR</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="13">
+          <onPress type="MSFS2020CustomInputAction" command="2 (&gt;L:A32NX_FCU_EFIS_L_NAVAID_1_MODE)" presetId="e22512eb-91fe-421c-b145-d5e80a3ec808" />
+          <onRelease type="MSFS2020CustomInputAction" command="0 (&gt;L:A32NX_FCU_EFIS_L_NAVAID_1_MODE)" presetId="c03f5daa-511b-45f6-858d-de4ddbffc302" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="feb1c31a-9d78-42f7-938b-f1c3833ba306">
+      <active>true</active>
+      <description>EFIS L - SW NAV2 ADF</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="15">
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;L:A32NX_FCU_EFIS_L_NAVAID_2_MODE)" presetId="22d3f9b6-e23e-443e-9453-f19f9816a0a2" />
+          <onRelease type="MSFS2020CustomInputAction" command="0 (&gt;L:A32NX_FCU_EFIS_L_NAVAID_2_MODE)" presetId="7b9e59b8-3cd2-4ec5-80e5-78389af166a3" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="e6117549-5e21-4770-ae97-87dad88f3d20">
+      <active>true</active>
+      <description>EFIS L - SW NAV2 VOR</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="EFIS L/ SN-869-089" name="MUX 2" type="InputMultiplexer" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <inputMultiplexer DataPin="14">
+          <onPress type="MSFS2020CustomInputAction" command="2 (&gt;L:A32NX_FCU_EFIS_L_NAVAID_2_MODE)" presetId="1fd55eba-f784-4c54-aeb9-22693456a415" />
+          <onRelease type="MSFS2020CustomInputAction" command="0 (&gt;L:A32NX_FCU_EFIS_L_NAVAID_2_MODE)" presetId="7b9e59b8-3cd2-4ec5-80e5-78389af166a3" />
+        </inputMultiplexer>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="9de3e496-50c2-4de5-8ee3-654538d75cc9">
+      <active>false</active>
+      <description>---------------------------------------------- END EFIS L</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="42b90ab2-6c14-4e3d-bf10-ed8421a2a3eb">
+      <active>true</active>
+      <description>S1</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="ProtoBoard-v2/ SN-GBF-9E4" name="Switch 6-3" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="0 (&gt;L:A32NX_OVHD_INTLT_ANN)" presetId="c71ee409-fc4e-4046-b586-bfdd5503de47" />
+          <onRelease type="MSFS2020CustomInputAction" command="1 (&gt;L:A32NX_OVHD_INTLT_ANN)" presetId="57cf2c91-cd12-43a3-bed7-ed3c30afff90" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+  </inputs>
+</MobiflightConnector>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ModuleType>MobiFlight Micro</ModuleType>
+  <ModuleName>FIRE</ModuleName>
+  <PowerSavingTime>600</PowerSavingTime>
+  <Output Name="OUT BRK BACK" Pin="10" />
+  <Output Name="OUT BRT LED" Pin="3" />
+  <ShiftRegister Name="OSH 1" LatchPin="1" ClockPin="0" DataPin="2" NumModules="3" />
+  <Button Name="BTN ENG1 AGENT1" Pin="7" />
+  <Button Name="BTN ENG1 AGENT2" Pin="4" />
+  <Button Name="BTN ENG1" Pin="5" />
+  <Button Name="BTN ENG1 TEST" Pin="6" />
+  <Button Name="BTN APU AGENT" Pin="21" />
+  <Button Name="BTN APU" Pin="15" />
+  <Button Name="BTN APU TEST" Pin="20" />
+  <Button Name="BTN ENG2 AGENT1" Pin="14" />
+  <Button Name="BTN ENG2 AGENT2" Pin="16" />
+  <Button Name="BTN ENG2" Pin="19" />
+  <Button Name="BTN ENG2 TEST" Pin="18" />
+</Config>

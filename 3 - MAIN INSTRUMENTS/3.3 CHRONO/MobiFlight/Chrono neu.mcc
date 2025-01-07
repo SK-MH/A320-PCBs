@@ -1,0 +1,550 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MobiflightConnector>
+  <outputs>
+    <config guid="c4e4a2e5-594b-4529-a303-681d228dfd51">
+      <active>true</active>
+      <description>ESS BUS IS POWERED (AC)</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_ELEC_AC_ESS_BUS_IS_POWERED)" UUID="95b6f5a3-c4e8-419d-976e-82a018bdec83" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="9e347547-59df-4e5f-9f1b-946c89c3780f">
+      <active>true</active>
+      <description>ANN LT (0,1,2)</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_OVHD_INTLT_ANN)" UUID="c1a09a24-8726-4b92-8a1d-c6c7c4cf5db4" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="a42db875-6ea9-493d-974d-6290681e7bb4">
+      <active>true</active>
+      <description>DISP LT (0--15)</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:LIGHT POTENTIOMETER:85, Percent)" UUID="e6ad0436-c249-443a-bb47-d24a13342b9d" />
+        <test type="Float" value="100" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,100,if(#=1,$,$/2))" />
+          <interpolation active="True">
+            <value x="0" y="1" />
+            <value x="100" y="6" />
+          </interpolation>
+        </modifiers>
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="644b90ab-f35c-4c27-a91f-8f3ef67c8b9a">
+      <active>false</active>
+      <description>---------------------------------------------- START CHRONO</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <comparison active="True" value="" operand="=" ifValue="1" elseValue="0" />
+        </modifiers>
+        <display type="" serial="-" trigger="change" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="ae33e6fb-f394-4912-88c4-f7c1686b151e">
+      <active>true</active>
+      <description>CHRONO - DISP BRT</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="3" />
+        </modifiers>
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="a01db9a2-9382-4b6d-82f7-1690bc669cc5">
+      <active>true</active>
+      <description>CHRONO - CHR - RAW</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_CHRONO_ELAPSED_TIME)" UUID="9295f464-5c3f-45ad-9521-c94779279f5a" />
+        <test type="Float" value="2" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,-1,$)" />
+        </modifiers>
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="89d5a138-691b-4a44-b22c-64f6e430e5cf">
+      <active>true</active>
+      <description>CHRONO - ET - RAW</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_CHRONO_ET_ELAPSED_TIME)" UUID="9a90f1b2-8469-4bc2-b5d5-e434171831c7" />
+        <test type="Float" value="123456" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,-1,$)" />
+        </modifiers>
+        <display type="-" serial="-" trigger="normal" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="6efdc52b-038c-4f48-8c55-de6b321cdd35">
+      <active>true</active>
+      <description>CHRONO - OUT BRT BACK</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(A:LIGHT POTENTIOMETER:85, Percent)" UUID="e6ad0436-c249-443a-bb47-d24a13342b9d" />
+        <test type="Float" value="123456" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,100,$)" />
+          <interpolation active="True">
+            <value x="0" y="255" />
+            <value x="100" y="235" />
+          </interpolation>
+          <transformation active="False" expression="240" />
+        </modifiers>
+        <display type="Output" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" pin="OUT_BRT_LED" pinBrightness="255" pinPwm="True" />
+        <preconditions />
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="dfe6816b-05a5-414f-b753-a53f24b0c475">
+      <active>true</active>
+      <description>CHRONO - BACKLIGHT</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="1" />
+        </modifiers>
+        <display type="ShiftRegister" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 2|Output 3|Output 7" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="b842e51b-123e-4c0d-936e-eacfce189bb4">
+      <active>true</active>
+      <description>CHRONO - LED</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="1" />
+        </modifiers>
+        <display type="ShiftRegister" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" shiftRegister="OSH 1" registerOutputPin="Output 0|Output 4|Output 5|Output 6" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="1c2213a7-7bd0-4b95-9d15-91ab6071cbf1">
+      <active>true</active>
+      <description>CHRONO -TEST CHR</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1234" />
+        <modifiers>
+          <transformation active="True" expression="8888" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="2" ledModuleSize="8" ledPadding="False" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="0,1,2,3" />
+        <preconditions>
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="=" value="0" logic="or" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="6030c479-4341-4809-b2aa-40f99f3af786">
+      <active>true</active>
+      <description>CHRONO -TEST UTC Copy</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1234" />
+        <modifiers>
+          <transformation active="True" expression="888888" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="1" ledModuleSize="6" ledPadding="False" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="0,1,2,3,4,5" />
+        <preconditions>
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="=" value="0" logic="or" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="53e84cdb-1e2c-4a0f-9c2f-477ef131a95a">
+      <active>true</active>
+      <description>CHRONO -TEST ET</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1234" />
+        <modifiers>
+          <transformation active="True" expression="8888" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="2" ledModuleSize="8" ledPadding="False" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="4,5,6,7" />
+        <preconditions>
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="=" value="0" logic="or" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="f23d4e66-fd38-4a5b-b782-f053c3722bc0">
+      <active>false</active>
+      <description>---------------------------------------------- START CHRONO Copy</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <comparison active="True" value="" operand="=" ifValue="1" elseValue="0" />
+        </modifiers>
+        <display type="" serial="-" trigger="change" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="cbb5944e-fad9-4e2b-9251-02a0d92b6f0f">
+      <active>true</active>
+      <description>CHRONO - CHR OFF Copy</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1234" />
+        <modifiers>
+          <transformation active="True" expression="'    '" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="2" ledModuleSize="8" ledPadding="False" ledPaddingChar="0" ledDigits="0,1,2,3" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="=" value="0" logic="or" />
+          <precondition type="config" active="true" ref="a01db9a2-9382-4b6d-82f7-1690bc669cc5" operand="=" value="-1" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="11d69c6a-7bab-4859-a587-143ca79022b0">
+      <active>true</active>
+      <description>CHRONO - CHR</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_CHRONO_ELAPSED_TIME)" UUID="9295f464-5c3f-45ad-9521-c94779279f5a" />
+        <test type="Float" value="1234" />
+        <modifiers>
+          <transformation active="True" expression="if(#==0,'.    ',100*Truncate($/60)+Truncate($%60))" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="2" ledModuleSize="8" ledPadding="True" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="0,1,2,3" ledDecimalPoints="2" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+          <precondition type="config" active="true" ref="a01db9a2-9382-4b6d-82f7-1690bc669cc5" operand="!=" value="-1" logic="and" />
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="&gt;" value="0 " logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="44f3a6ad-68bf-49c5-99b8-8aa9e17d3ea4">
+      <active>true</active>
+      <description>CHRONO - UTC  OFF</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="88" />
+        <modifiers>
+          <transformation active="True" expression="'      '" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="1" ledModuleSize="6" ledPadding="True" ledPaddingChar="0" ledDigits="0,1,2,3,4,5" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="=" value="0" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="c635b146-f292-4b18-9a9f-bec236cec43c">
+      <active>true</active>
+      <description>CHRONO - UTC</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(E:ZULU TIME,second)" UUID="b406ff1f-7d3f-4b7e-872a-a2e2a2a2b760" />
+        <test type="Float" value="123456" />
+        <modifiers>
+          <transformation active="True" expression="if(#=0,888888,10000*Truncate($/3600)+100*Truncate(($/60)%60)+Truncate($%60))" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="1" ledModuleSize="6" ledPadding="True" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="0,1,2,3,4,5" ledDecimalPoints="2,4" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="!=" value="0" logic="and" />
+          <precondition type="variable" active="true" ref="CHRONO_DATE_PRESSED" operand="=" value="0" logic="and" />
+          <precondition type="variable" active="true" ref="CHRONO_LOCAL_TIME" operand="=" value="0" logic="and" />
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs>
+          <configref active="True" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" placeholder="#" testvalue="1" />
+        </configrefs>
+      </settings>
+    </config>
+    <config guid="ab3fc89b-f31a-48f8-bf00-68ef53ae4222">
+      <active>true</active>
+      <description>CHRONO - LOCAL TIME</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(E:LOCAL TIME,second)" UUID="8ec35809-cb7e-47b9-a562-3b81f5fcd429" />
+        <test type="Float" value="123456" />
+        <modifiers>
+          <transformation active="True" expression="10000*Truncate($/3600)+100*Truncate(($/60)%60)+Truncate($%60)" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="1" ledModuleSize="6" ledPadding="True" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="0,1,2,3,4,5" ledDecimalPoints="2,4" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="!=" value="0" logic="and" />
+          <precondition type="variable" active="true" ref="CHRONO_DATE_PRESSED" operand="=" value="0" logic="and" />
+          <precondition type="variable" active="true" ref="CHRONO_LOCAL_TIME" operand="!=" value="0" logic="and" />
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="bce3461a-8c74-449e-a226-40ea3c466da6">
+      <active>true</active>
+      <description>CHRONO - DATE OFF</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(E:ZULU MONTH OF YEAR, number) 10000 * (E:ZULU DAY OF MONTH, number) 100 * + (E:ZULU YEAR, number) 2000 - +" UUID="b406ff1f-7d3f-4b7e-872a-a2e2a2a2b760" />
+        <test type="Float" value="123456" />
+        <modifiers>
+          <transformation active="True" expression="'      '" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="1" ledModuleSize="6" ledPadding="True" ledPaddingChar="0" ledDigits="0,1,2,3,4,5" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="=" value="0" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="f7c61d29-56e2-487d-a416-3dd9020a95e4">
+      <active>true</active>
+      <description>CHRONO - DATE</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(E:ZULU MONTH OF YEAR, number) 10000 * (E:ZULU DAY OF MONTH, number) 100 * + (E:ZULU YEAR, number) 2000 - +" UUID="b406ff1f-7d3f-4b7e-872a-a2e2a2a2b760" />
+        <test type="Float" value="123456" />
+        <modifiers />
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="1" ledModuleSize="6" ledPadding="True" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="0,1,2,3,4,5" ledDecimalPoints="2,4" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+          <precondition type="variable" active="true" ref="CHRONO_DATE_PRESSED" operand="=" value="1" logic="and" />
+          <precondition type="variable" active="true" ref="CHRONO_LOCAL_TIME" operand="=" value="0" logic="and" />
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="0bb18358-ae8d-4335-9745-91cb853f1f4e">
+      <active>true</active>
+      <description>CHRONO - LOCAL DATE</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(E:LOCAL DAY OF MONTH, number) 10000 * (E:LOCAL MONTH OF YEAR, number) 100 * + (E:LOCAL YEAR, number) 2000 - +" UUID="b406ff1f-7d3f-4b7e-872a-a2e2a2a2b760" />
+        <test type="Float" value="123456" />
+        <modifiers />
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="1" ledModuleSize="6" ledPadding="True" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="0,1,2,3,4,5" ledDecimalPoints="2,4" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+          <precondition type="variable" active="true" ref="CHRONO_DATE_PRESSED" operand="=" value="1" logic="and" />
+          <precondition type="variable" active="true" ref="CHRONO_LOCAL_TIME" operand="!=" value="0" logic="and" />
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="b1718518-df9d-44e7-9cd6-0cb2b051c35f">
+      <active>true</active>
+      <description>CHRONO - ET OFF</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="" UUID="-" />
+        <test type="Float" value="1" />
+        <modifiers>
+          <transformation active="True" expression="'    '" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="2" ledModuleSize="8" ledPadding="False" ledPaddingChar="0" ledDigits="4,5,6,7" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="=" value="0" logic="or" />
+          <precondition type="config" active="true" ref="89d5a138-691b-4a44-b22c-64f6e430e5cf" operand="=" value="-1" logic="and" />
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="&gt;" value="0" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="52da5cf1-74a5-459c-bb39-67529e307096">
+      <active>true</active>
+      <description>CHRONO - ET RUN</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_CHRONO_ET_ELAPSED_TIME)" UUID="9a90f1b2-8469-4bc2-b5d5-e434171831c7" />
+        <test type="Float" value="3600" />
+        <modifiers>
+          <transformation active="True" expression="100*Truncate($/3600)+Truncate(Truncate($/60)%60)" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="2" ledModuleSize="8" ledPadding="True" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="4,5,6,7" ledDecimalPoints="6" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+          <precondition type="config" active="true" ref="89d5a138-691b-4a44-b22c-64f6e430e5cf" operand="!=" value="-1" logic="and" />
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="&gt;" value="0" logic="and" />
+          <precondition type="variable" active="true" ref="ET_RUNNING" operand="=" value="1" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="e3d89ced-71da-41f4-b505-1f2a02365ee3">
+      <active>true</active>
+      <description>CHRONO - ET STOP</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="CODE" Value="(L:A32NX_CHRONO_ET_ELAPSED_TIME)" UUID="9a90f1b2-8469-4bc2-b5d5-e434171831c7" />
+        <test type="Float" value="3600" />
+        <modifiers>
+          <transformation active="True" expression="100*Truncate($/3600)+Truncate(Truncate($/60)%60)" />
+        </modifiers>
+        <display type="Display Module" serial="CHRONO neu/ SN-9EF-CF5" trigger="normal" ledAddress="7SEG 1" ledConnector="2" ledModuleSize="8" ledPadding="True" ledBrightnessRef="ae33e6fb-f394-4912-88c4-f7c1686b151e" ledPaddingChar="0" ledDigits="4,5,6,7" />
+        <preconditions>
+          <precondition type="config" active="true" ref="c4e4a2e5-594b-4529-a303-681d228dfd51" operand="&gt;" value="0" logic="and" />
+          <precondition type="config" active="true" ref="89d5a138-691b-4a44-b22c-64f6e430e5cf" operand="!=" value="-1" logic="and" />
+          <precondition type="config" active="true" ref="9e347547-59df-4e5f-9f1b-946c89c3780f" operand="&gt;" value="0" logic="and" />
+          <precondition type="variable" active="true" ref="ET_RUNNING" operand="=" value="0" logic="and" />
+        </preconditions>
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="37ba15a9-879c-4ef5-9939-dd3a5399bf50">
+      <active>false</active>
+      <description>---------------------------------------------- END CHRONO</description>
+      <settings msdata:InstanceType="MobiFlight.OutputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <source type="SimConnect" VarType="LVAR" Value="" />
+        <test type="Float" value="1" />
+        <modifiers />
+        <display type="" serial="" pin="" pinBrightness="255" />
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+  </outputs>
+  <inputs>
+    <config guid="cdf18ba9-0860-49be-a0ad-15f829ae3d81">
+      <active>false</active>
+      <description>---------------------------------------------- START CHRONO</description>
+    </config>
+    <config guid="172de925-9da8-4350-b512-41ebdcbd4a10">
+      <active>true</active>
+      <description>CHRONO - RST</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="BTN RST" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(&gt;H:A32NX_CHRONO_RST)" presetId="065d9872-4a12-4db3-a3f7-3d2ed9922cf2" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="61611299-664a-4206-b94e-e0b337dd61b7">
+      <active>true</active>
+      <description>CHRONO - CHR</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="BTN CHR" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(&gt;H:A32NX_CHRONO_TOGGLE)" presetId="64a49d72-6186-4ab5-b12b-d9740e490703" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="5e9e6843-d9ad-4b34-a5e9-6db0c25a99c0">
+      <active>true</active>
+      <description>CHRONO - DATE</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="BTN SET" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="VariableInputAction" varType="number" varName="CHRONO_DATE_PRESSED" varExpression="1" />
+          <onRelease type="VariableInputAction" varType="number" varName="CHRONO_DATE_PRESSED" varExpression="0" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="e3f64a6f-6699-41b7-9edd-a27aa0693f56">
+      <active>true</active>
+      <description>CHRONO - UTC</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="BTN SET" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="(&gt;H:A32NX_CHRONO_DATE)" presetId="bb91f1ac-35b4-407a-9547-bd14a5b12703" />
+          <onRelease type="MSFS2020CustomInputAction" command="(&gt;H:A32NX_CHRONO_DATE)" presetId="bb91f1ac-35b4-407a-9547-bd14a5b12703" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="5c55b9a7-aa57-4902-8ce4-1f6b2fcbb3a8">
+      <active>true</active>
+      <description>CHRONO - LOCAL TIME</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="RSW GPS" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="VariableInputAction" varType="number" varName="CHRONO_LOCAL_TIME" varExpression="0" />
+          <onRelease type="VariableInputAction" varType="number" varName="CHRONO_LOCAL_TIME" varExpression="1" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="dc5034ee-c817-4651-bac8-2867c3a16e35">
+      <active>true</active>
+      <description>CHRONO - ET - RUN</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="RSW RUN" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="0 (&gt;L:A32NX_CHRONO_ET_SWITCH_POS, number)" presetId="99ef8dbf-8d6e-4b70-b4c6-ffab4f936952" />
+          <onRelease type="MSFS2020CustomInputAction" command="1 (&gt;L:A32NX_CHRONO_ET_SWITCH_POS, number)" presetId="5a0e886f-4e58-4976-b471-7ee8797a54f4" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="73bd166f-1654-40f9-a66a-2fdd60475bd8">
+      <active>true</active>
+      <description>CHRONO - ET - STP</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="RSW STP" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="1 (&gt;L:A32NX_CHRONO_ET_SWITCH_POS, number)" presetId="5a0e886f-4e58-4976-b471-7ee8797a54f4" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="c5da6966-1240-4279-a9e7-72889c71cad2">
+      <active>true</active>
+      <description>CHRONO - ET - RST</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="RSW RST" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="MSFS2020CustomInputAction" command="2 (&gt;L:A32NX_CHRONO_ET_SWITCH_POS, number)" presetId="8bc8f203-06cc-4a0c-80f0-bb7a677f4b7a" />
+          <onRelease type="MSFS2020CustomInputAction" command="1 (&gt;L:A32NX_CHRONO_ET_SWITCH_POS, number)" presetId="5a0e886f-4e58-4976-b471-7ee8797a54f4" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="33a3f0f1-c52c-4102-bc18-fc072fa799d0">
+      <active>true</active>
+      <description>CHRONO - ET - RUNNING</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="CHRONO neu/ SN-9EF-CF5" name="RSW RUN" type="Button" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <button>
+          <onPress type="VariableInputAction" varType="number" varName="ET_RUNNING" varExpression="1" />
+          <onRelease type="VariableInputAction" varType="number" varName="ET_RUNNING" varExpression="0" />
+        </button>
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+    <config guid="40ae0dbe-7e31-48f2-9398-76572f77432b">
+      <active>false</active>
+      <description>---------------------------------------------- END CHRONO</description>
+      <settings msdata:InstanceType="MobiFlight.InputConfigItem, MFConnector, Version=10.4.0.1, Culture=neutral, PublicKeyToken=null" serial="" name="" type="-" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <preconditions />
+        <configrefs />
+      </settings>
+    </config>
+  </inputs>
+</MobiflightConnector>
