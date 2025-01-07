@@ -24,6 +24,7 @@ fp-info-cache
 backups/
 *.ipc
 fabrication-toolkit-options*
+*.db
 
 # Netlist files (exported from Eeschema)
 *.net
