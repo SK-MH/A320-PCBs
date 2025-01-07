@@ -5,8 +5,8 @@
 # Temporary files
 .vscode
 *.000
-*.svg
-*.jpg
+#*.svg
+#*.jpg
 *.bak
 *.bck
 *.kicad_pcb-bak
